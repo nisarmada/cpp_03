@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Claptrap.hpp                                       :+:    :+:            */
+/*   ClapTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nikos <nikos@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/09 19:25:56 by nikos         #+#    #+#                 */
-/*   Updated: 2025/03/09 19:55:24 by nikos         ########   odam.nl         */
+/*   Updated: 2025/03/11 20:36:51 by nikos         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ class ClapTrap {
 		int			ad;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
+		ClapTrap(const ClapTrap &other);
+		ClapTrap& operator=(const ClapTrap &other);
+
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);

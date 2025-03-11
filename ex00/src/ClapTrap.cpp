@@ -6,20 +6,40 @@
 /*   By: nikos <nikos@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/09 19:33:40 by nikos         #+#    #+#                 */
-/*   Updated: 2025/03/09 20:00:23 by nikos         ########   odam.nl         */
+/*   Updated: 2025/03/11 20:38:05 by nikos         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): name("Mike"), hp(10), energyPoints(10), ad(10)
+{
+	std::cout << "Default Constructor has been called" << std::endl;
+
+}
+
 ClapTrap::ClapTrap(std::string name) : name(name), hp(10), energyPoints(10), ad(10)
 {
-	// this->name = name;
 	std::cout << "Constructor has been called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
 	std::cout << "Destructor has been called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hp(other.hp),
+	energyPoints(other.energyPoints), ad(other.ad) {
+		std::cout << "ClapTrap copy constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	if (this == &other)
+		return (*this);
+	name = other.name;
+	hp = other.hp;
+	ad = other.ad;
+	energyPoints = other.energyPoints;
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string& target){
