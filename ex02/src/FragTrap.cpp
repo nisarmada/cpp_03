@@ -6,11 +6,18 @@
 /*   By: nikos <nikos@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/10 14:13:52 by nikos         #+#    #+#                 */
-/*   Updated: 2025/03/10 14:24:13 by nikos         ########   odam.nl         */
+/*   Updated: 2025/03/13 16:07:00 by nikos         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../FragTrap.hpp"
+
+FragTrap::FragTrap() : ClapTrap("Mike") {
+	std::cout << "FragTrap named " << this->name << " has been created !" << std::endl;
+	this->hp = 100;
+	this->energyPoints = 100;
+	this->ad = 30;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap named " << this->name << " has been created !" << std::endl;
@@ -21,6 +28,17 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 
 FragTrap::~FragTrap() {
 	std::cout << "FragTrap named " << this->name << " has been destroyed" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
+	std::cout << "FragTrap copied !" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other) {
+	if (this == &other)
+		return (*this);
+	ClapTrap::operator=(other);
+	return (*this);
 }
 
 void FragTrap::attack(const std::string& target) {
