@@ -6,7 +6,7 @@
 /*   By: nikos <nikos@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/09 19:25:56 by nikos         #+#    #+#                 */
-/*   Updated: 2025/03/10 14:10:22 by nikos         ########   odam.nl         */
+/*   Updated: 2025/04/01 14:38:41 by nsarmada      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ class ClapTrap {
 		int			ad;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		virtual ~ClapTrap();
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		
 		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
